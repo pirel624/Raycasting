@@ -43,9 +43,9 @@ class line:
             self.Y2 = y2
         else:
 
-        if self.X1 = self.X2:
+        if self.X1 == self.X2:
             self.isParallelY = True
-        if self.Y1 = self.Y1:
+        if self.Y1 == self.Y2:
             self.isParallelX = True
 
         if not isParallelY and not isParallelX:
@@ -53,9 +53,9 @@ class line:
             self.Constant = self.Y1 - (self.Slope * self.X1)
 
     def compile_data(self):
-        if self.X1 = self.X2:
+        if self.X1 == self.X2:
             self.isParallelY = True
-        if self.Y1 = self.Y1:
+        if self.Y1 == self.Y2:
             self.isParallelX = True
 
         if not isParallelY and not isParallelX:
@@ -146,12 +146,12 @@ class segment:                                       # Line is created by slicin
         self.Sy = Y
         self.BaseLIne.change(self.Sx, self.Sy, self.Dx, self.Dy, False, False, False, False)
 
-    def change_direction_x(self, x):
+    def change_finishing_x(self, x):
         self.Dx = X
         self.BaseLIne.change(self.Sx, self.Sy, self.Dx, self.Dy, False, False, False, False)
 
-    def change_direction_y(self, x):
-        self.Dx = X
+    def change_finishing_y(self, y):
+        self.Dy = y
         self.BaseLIne.change(self.Sx, self.Sy, self.Dx, self.Dy, False, False, False, False)
 
     def define(self, Limit1X, Limit1Y, Limit2X, Limit2Y):
