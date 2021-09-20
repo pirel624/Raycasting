@@ -179,3 +179,42 @@ class segment:                                       # Line is created by slicin
 
     def get_identity(self):
         return self.BaseLine.get_identity()
+
+class Rigorous_Value:
+    def __init__(self):                                                    #          [10, [1], 10]   ===>>>>  10 + 10
+        self.Mathematical_Definition = []                                  #          [10, [2], 10]   ===>>>>  10 - 10
+
+    def Assign_Value(self, value):                                         #          [10, [3], 10]   ===>>>>  10 x 10
+        if len(self.Mathematical_Definition) == 0:                         #          [10, [4], 10]   ===>>>>  10 / 10
+            self.Mathematical_Definition.append(value)
+        else:                                                              #          No operation assume any priority, everything is calculated sequentially
+            return "AlreadyAssigned"                                       #          [10, [1], 10, [3], 10, [2], 10]  ==>>  (((10 + 10) x 10) - 10)
+
+    def Addition(self, value):
+        if len(self.Mathematical_Definition) == 0:
+            self.Mathematical_Definition.append(value)
+        else:
+            self.Mathematical_Definition.append([1])
+            self.Mathematical_Definition.appenf(value)
+
+    def Substraction(self, value):
+        if len(self.Mathematical_Definition) == 0:       # no value assigned yet, so turn substration operand into negative number for base value
+            self.Mathematical_Definition.append(-value)
+        else:
+            self.Mathematical_Definition.append([2])
+            self.Mathematical_Definition.appenf(value)
+
+    def Multiplication(self, value):
+        if len(self.Mathematical_Definition) == 0:       
+            self.Mathematical_Definition.append(0)
+        else:
+            self.Mathematical_Definition.append([3])
+            self.Mathematical_Definition.appenf(value)
+
+    def Division(self, value):
+        if len(self.Mathematical_Definition) == 0:       
+            self.Mathematical_Definition.append(0)
+        else:
+            if value != 0: 
+                self.Mathematical_Definition.append([4])
+                self.Mathematical_Definition.appenf(value)  
