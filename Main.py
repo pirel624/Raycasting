@@ -218,3 +218,96 @@ class Rigorous_Value:
             if value != 0: 
                 self.Mathematical_Definition.append([4])
                 self.Mathematical_Definition.appenf(value)  
+
+                
+class plane:
+    def __init__(self):
+        self.AbsoluteCenterX = float()
+
+
+
+
+
+class point:
+    def __init__(self):
+        self.X = float()
+        self.Y = float()
+        self.DefinedX = False                   # Undefined coordinate means that the point dwell on a real plane, but without any specific location
+        self.DefinedY = False
+        self.Real = True
+
+    def AssignX(self, x):
+        self.X = x
+        self.DefinedX = True
+
+    def AssignY(self, y):
+        self.y = y
+        self.DefinedY = True
+
+    def Assign(self, x, y);
+        self.X = x
+        self.y = y
+        self.DefinedY = True
+        self.DefinedX = True
+
+    def SetImaginary(self):
+        self.Real = False
+
+    def SetReal(self);
+        self.Real = True
+
+    def GetData(self):
+        X = False
+        Y = False
+
+        if self.DefinedX:
+            X = self.X
+        if self.DefinedY;
+            Y = self.Y
+
+        return [X, Y, self.Real]
+
+
+class line:
+    def __init__(self):
+        self.Point1 = point()
+        self.Point2 = point()
+
+    def PositionPoint1(self, x, y):
+        self.Point1.Assign(x, y)
+
+    def Positionpoint2(self, x, y):
+        self.Point2.Assign(x, y)
+
+    def Position(self, x1, y1, x2, y2):
+        self.Point1.Assign(x1, y1)
+        self.Point2.Assign(x2, y2)
+
+    def GetData(self):
+        return [self.Point1, self.Point2]
+
+    def GetType():
+        return "line"
+
+class ray(line):
+    def PositionStart(self, x, y):
+        PositionPoint1(x, y)
+
+    def PositionDirection(self, x, y):
+        PositionPoint2(x, y)
+
+    def GetStartingPoint(self):
+        return GetData()[0]
+
+    def GetDirectingPoint(self):
+        return GetData()[1]
+
+    def GetType():
+        return "ray"
+
+class segment(line):
+    def GetType():
+        return "segment"
+
+
+def GetLinesAdditionalData(line garis):                
